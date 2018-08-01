@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 	"regexp"
 	"strconv"
@@ -18,7 +17,6 @@ func handle(w http.ResponseWriter, r *http.Request) {
 	re := regexp.MustCompile("/(\\d*)")
 	m := re.FindStringSubmatch(r.URL.Path)
 	if 1 == len(m) {
-		fmt.Fprintln(w, "XXX: Go to Webkit.org")
 		http.Redirect(w, r, "https://www.webkit.org/", http.StatusMovedPermanently)
 		return
 	}
